@@ -9,6 +9,9 @@ url="http://github.io/dvbuntu/compute"
 license=('MIT')
 groups=()
 depends=(
+         'xf86-video-vesa'
+         'base-devel'
+         'sudo'
          'git'
          'tmux'
          'python3'
