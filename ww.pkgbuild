@@ -1,0 +1,47 @@
+# This is an example PKGBUILD file. Use this as a start to creating your own,
+# and remove these comments. For more information, see 'man PKGBUILD'.
+# NOTE: Please fill out the license field for your package! If it is unknown,
+# then please put 'unknown'.
+
+# Maintainer: Dan Van Boxel <the.dvb@gmail.com>
+pkgname=wise-workflow
+pkgver=1.0.0
+pkgrel=1
+epoch=
+pkgdesc="Metapackage (only dependencies) for Interactive Computing Workflow tools ('Wise Workflow')"
+arch=()
+url="http://github.io/dvbuntu/compute"
+license=('MIT')
+groups=()
+depends=('tmux'
+         'ipython'
+         'python3'
+         'python-numpy'
+         'vim'
+         'slimux-git'
+         )
+makedepends=('git')
+checkdepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+changelog=
+source=()
+noextract=()
+md5sums=()
+
+prepare() {
+}
+
+build() {
+}
+
+check() {
+}
+
+package() {
+}
