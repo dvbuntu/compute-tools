@@ -39,15 +39,6 @@ source=(
 noextract=()
 md5sums=('SKIP')
 
-prepare() {
-}
-
-build() {
-}
-
-check() {
-}
-
 package() {
     # switch shell to zsh
     chsh -s $(which zsh)
@@ -58,5 +49,4 @@ package() {
 
     # run the installation command
     $srcdir/install.sh
-
 }
