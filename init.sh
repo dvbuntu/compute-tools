@@ -3,10 +3,12 @@
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 # move to Downloads
+echo "Making a Downloads directory"
 install -d $HOME/Downloads
 cd $HOME/Downloads
 
 # First install package-query
+echo "Installing basic AUR helper"
 curl -O https://aur.archlinux.org/packages/pa/package-query/package-query.tar.gz
 tar -xzvf package-query.tar.gz
 cd package-query
@@ -41,24 +43,29 @@ aur_pkgs=(
          'slimux-git'
          )
 
+echo "Installing core packages"
 sudo pacman -Sy
 for i in "${pkgs[@]}"
 do
     sudo pacman -S $i
 done
 
+echo "Installing AUR packages"
 for i in "${aur_pkgs[@]}"
 do
     yaourt $i
 done
 
 # get some sane defaults going
+echo "Grabbing sane defaults"
 git clone git://github.com/dvbuntu/.files.git
 
 # run the installation command
+echo "Installing sane defaults"
 cd .files
 ./install.sh
 
 # switch shell to zsh
+echo "switching to zsh"
 chsh -s $(which zsh)
 
