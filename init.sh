@@ -21,7 +21,7 @@ sudo pacman -U yaourt*.tar.xz
 cd ..
 
 # run yaourt on the 
-pkgs = (
+pkgs=(
          'xf86-video-vesa'
          'base-devel'
          'sudo'
@@ -34,7 +34,7 @@ pkgs = (
          'openbox'
          'zsh'
          )
-aur_pkgs = (
+aur_pkgs=(
          'oh-my-zsh-git'
          'slimux-git'
          )
