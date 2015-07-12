@@ -39,10 +39,10 @@ aur_pkgs=(
          'slimux-git'
          )
 
-sudo pacman -S
+sudo pacman -Sy
 for i in "${pkgs[@]}"
 do
-    sudo pacman -y $i
+    sudo pacman $i
 done
 
 for i in "${aur_pkgs[@]}"
