@@ -57,7 +57,7 @@ git clone git://github.com/dvbuntu/.files.git
 
 # run the installation command
 cd .files
-install.sh
+./install.sh
 
 # switch shell to zsh
 chsh -s $(which zsh)
