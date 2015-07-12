@@ -26,6 +26,10 @@ cd ..
 
 # install required packages
 pkgs=(
+         'xterm'
+         'xorg-server'
+         'xorg-xinit'
+         'xorg-xmodmap'
          'xf86-video-vesa'
          'base-devel'
          'sudo'
@@ -36,11 +40,14 @@ pkgs=(
          'python-numpy'
          'vim'
          'openbox'
+         'obconf'
          'zsh'
+         'firefox'
          )
 aur_pkgs=(
          'oh-my-zsh-git'
          'slimux-git'
+         'vim-pathogen-git'
          )
 
 echo "Installing core packages"
