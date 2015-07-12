@@ -1,5 +1,7 @@
 #! /bin/bash
 
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
 # move to Downloads
 install -d $HOME/Downloads
 cd $HOME/Downloads
@@ -20,7 +22,7 @@ makepkg -si
 sudo pacman -U yaourt*.tar.xz
 cd ..
 
-# run yaourt on the 
+# install required packages
 pkgs=(
          'xf86-video-vesa'
          'base-devel'
@@ -49,3 +51,14 @@ for i in "${aur_pkgs[@]}"
 do
     yaourt $i
 done
+
+# get some sane defaults going
+git clone git://github.com/dvbuntu/.files.git
+
+# run the installation command
+cd .files
+install.sh
+
+# switch shell to zsh
+chsh -s $(which zsh)
+
