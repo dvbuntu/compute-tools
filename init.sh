@@ -42,7 +42,7 @@ aur_pkgs=(
 sudo pacman -Sy
 for i in "${pkgs[@]}"
 do
-    sudo pacman $i
+    sudo pacman -S $i
 done
 
 for i in "${aur_pkgs[@]}"
