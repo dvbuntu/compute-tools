@@ -9,7 +9,7 @@ cd $HOME/Downloads
 
 # First install package-query
 echo "Installing basic AUR helper"
-curl -O https://aur4.archlinux.org/packages/pa/package-query/package-query.tar.gz
+curl -O https://aur4.archlinux.org/cgit/aur.git/snapshot/package-query.tar.gz
 tar -xzvf package-query.tar.gz
 cd package-query
 makepkg -si
@@ -17,7 +17,7 @@ sudo pacman -U package-query*.tar.xz
 cd ..
 
 # now install yaourt
-curl -O https://aur4.archlinux.org/packages/ya/yaourt/yaourt.tar.gz
+curl -O https://aur4.archlinux.org/cgit/aur.git/snapshot/yaourt.tar.gz
 tar -xzvf yaourt.tar.gz
 cd yaourt
 makepkg -si
