@@ -36,7 +36,7 @@ pkgs=(
          'git'
          'tmux'
          'python3'
-         'ipython'
+         #'ipython'
          'python-numpy'
          'vim'
          'openbox'
@@ -48,6 +48,11 @@ aur_pkgs=(
          'oh-my-zsh-git'
          'slimux-git'
          'vim-pathogen-git'
+         )
+
+pip_pkgs=(
+         'ipython'
+         'notedown'
          )
 
 echo "Installing core packages"
@@ -62,6 +67,22 @@ for i in "${aur_pkgs[@]}"
 do
     yaourt $i
 done
+
+echo "Installing pip packages"
+for i in "${pip_pkgs[@]}"
+do
+    pip install --upgrade $i
+done
+
+# Other ipython needed installs
+echo "Grabbing ipython notebook extensions"
+git clone git://github.com/dvbuntu/notebook_input_mode.git
+echo "Installing ipython notebook extensions"
+cd notebook_input_mode
+python install.py
+touch ~/.jupyter/jupyter_notebook_config.py
+echo "c.NotebookApp.contents_manager_class = 'notedown.NotedownContentsManager'" >> ~/.jupyter/jupyter_notebook_config.py
+cd ..
 
 # get some sane defaults going
 echo "Grabbing sane defaults"
