@@ -65,7 +65,7 @@ done
 
 # get some sane defaults going
 echo "Grabbing sane defaults"
-git clone git://github.com/dvbuntu/.files.git
+git clone https://github.com/dvbuntu/.files.git
 
 # run the installation command
 echo "Installing sane defaults"
