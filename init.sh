@@ -7,72 +7,45 @@ echo "Making a Downloads directory"
 install -d $HOME/Downloads
 cd $HOME/Downloads
 
-# First install package-query
-echo "Installing basic AUR helper"
-curl -O https://aur4.archlinux.org/cgit/aur.git/snapshot/package-query.tar.gz
-tar -xzvf package-query.tar.gz
-cd package-query
-makepkg -si
-sudo pacman -U package-query*.tar.xz
-cd ..
-
-# now install yaourt
-curl -O https://aur4.archlinux.org/cgit/aur.git/snapshot/yaourt.tar.gz
-tar -xzvf yaourt.tar.gz
-cd yaourt
-makepkg -si
-sudo pacman -U yaourt*.tar.xz
-cd ..
-
 # install required packages
 pkgs=(
          'xterm'
-         'xorg-server'
-         'xorg-xinit'
-         'xorg-xmodmap'
-         'xf86-video-vesa'
-         'base-devel'
-         'sudo'
          'git'
          'tmux'
          'python3'
          'ipython'
          'python-numpy'
          'vim'
-         'openbox'
-         'obconf'
          'zsh'
          'firefox'
          )
-aur_pkgs=(
-         'oh-my-zsh-git'
-         'slimux-git'
-         'vim-pathogen-git'
-         )
 
 echo "Installing core packages"
-sudo pacman -Sy
+sudo apt-get update
 for i in "${pkgs[@]}"
 do
-    sudo pacman -S $i
-done
-
-echo "Installing AUR packages"
-for i in "${aur_pkgs[@]}"
-do
-    yaourt $i
+    sudo apt-get install $i
 done
 
 # get some sane defaults going
 echo "Grabbing sane defaults"
 git clone https://github.com/dvbuntu/.files.git
 
+# switch shell to zsh
+echo "switching to zsh with oh-my-zsh"
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+chsh -s $(which zsh)
+
 # run the installation command
 echo "Installing sane defaults"
 cd .files
 ./install.sh
 
-# switch shell to zsh
-echo "switching to zsh"
-chsh -s $(which zsh)
 
+# Get slimux by using pathogen
+echo "Installing pathogen and slimux"
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+    curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+cd ~/.vim/bundle && \
+    git clone https://github.com/epeli/slimux.git
