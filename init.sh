@@ -15,6 +15,7 @@ pkgs=(
          'python3'
          'ipython3'
          'python3-numpy'
+         'python3-pip'
          'vim'
          'zsh'
          'firefox'
@@ -26,6 +27,10 @@ for i in "${pkgs[@]}"
 do
     sudo apt-get install $i
 done
+
+# Get better pip
+echo "Upgrading pip"
+sudo pip3 install --upgrade pip
 
 # get some sane defaults going
 echo "Grabbing sane defaults"
@@ -39,6 +44,8 @@ chsh -s $(which zsh)
 # run the installation command
 echo "Installing sane defaults"
 cd .files
+git checkout --track origin/ubuntu
+git pull
 ./install.sh
 
 
@@ -49,3 +56,4 @@ mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 
 cd ~/.vim/bundle && \
     git clone https://github.com/epeli/slimux.git
+
