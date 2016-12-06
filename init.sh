@@ -53,7 +53,7 @@ git pull
 echo "Installing pathogen and slimux"
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
     wget https://tpo.pe/pathogen.vim && \
-    mv pathogen.vim ~/.vim/bundle/
+    mv pathogen.vim ~/.vim/autoload/
 
 cd ~/.vim/bundle && \
     git clone https://github.com/epeli/slimux.git
